@@ -1,0 +1,8 @@
+<ul>
+<% @browsers.each do |b| %>
+  <li>
+   <input type="checkbox" name="test_suite_execution[browser_ids][]" value="<%= b.id %>">
+    <%= b.name %>
+  </li>
+<% end %>
+</ul>

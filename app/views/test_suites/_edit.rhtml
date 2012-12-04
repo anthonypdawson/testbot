@@ -1,0 +1,30 @@
+<%= error_messages_for 'test_suite' %>
+
+<!--[form:test_suite]-->
+<input type="hidden" id="test_suite_id" value="<%=@test_suite.id %>" />
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label><br/>
+      <label class="sublabel">Required *</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'test_suite', 'name'  %><%= submit_tag 'Update', :class=>"save" %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Select Test Cases</label><br/>
+      <label class="sublabel">drag from one to the other</label><br/>
+      <label class="sublabel">takes affect immediately</label>
+    </td>
+    <td class="entry">
+      <div id="test_case_selection">
+        <%= render_component :action=>'test_case_selection', :id=>@test_suite.id%>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<!--[eoform:test_suite]-->
+

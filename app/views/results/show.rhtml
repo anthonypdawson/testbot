@@ -1,0 +1,56 @@
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Test Suite Execution</label>
+    </td>
+    <td class="entry">
+      <%= @result.test_suite_execution.description %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Suite</label>
+    </td>
+    <td class="entry">
+      <%= @result.test_suite.name if !@result.test_suite.nil?%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Case</label>
+    </td>
+    <td class="entry">
+      <%= @result.test_case.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Successes</label>
+    </td>
+    <td class="entry">
+    <table class="list_table">
+        <% @result.success_list.each do |success| %>
+        <tr class="body-<%=cycle("even","odd")%>">
+          <td><%= success %></td>
+        </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Failures</label>
+    </td>
+    <td class="entry">
+      <table class="list_table">
+        <% @result.failure_list.each do |failure| %>
+        <tr class="body-<%=cycle("even","odd")%>">
+          <td><%= failure %></td>
+        </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+
+</table>
+

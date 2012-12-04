@@ -1,0 +1,20 @@
+<% # FIX THIS TO DYNAMICALLY FILL PARTIAL ON CLICK %>
+<% if test_suite.nil?
+      test_suite_name = "Other"
+   else
+      test_suite_name = test_suite.name
+  end
+%>
+  <tr class="body-<%=cycle("even","odd")%>"  onmouseover="this.style.cursor='pointer';" onclick="toggleDiv('<%=test_suite_name%>')">
+    <td style="text-decoration: underline;">
+      <%= test_suite_name %>
+    </td>
+    <td <% if !test_suite.nil?%>class="status-<%=test_suite.status(@test_suite_execution.id) %><%end%>" width="15%">
+      <%= @test_suite_execution.test_suite_status(test_suite) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <%= render :partial=>"show_results", :layout=>false, :locals=>{:test_suite_name => test_suite_name, :results => results} %>
+  </td>
+</tr>

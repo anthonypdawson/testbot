@@ -1,0 +1,30 @@
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label>
+    </td>
+    <td class="entry">
+      <%=h @browser.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Selenium Name</label>
+    </td>
+    <td class="entry">
+      <%=h @browser.selenium_name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Path</label>
+    </td>
+    <td class="entry">
+      <%=h @browser.send("path") %>
+    </td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', :action => 'edit', :id => @browser %> |
+<%= link_to 'Remove', { :action => 'destroy', :id => @browser }, :confirm => 'Are you sure?', :method => :post %> |
+<%= link_to 'List', :action => 'list' %>

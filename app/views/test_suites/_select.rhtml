@@ -1,0 +1,16 @@
+<div style="height: 50px; width: 300px; overflow: auto">
+<ul class="NoBullets">
+  <% if @test_suites.nil? or @test_suites.length < 1 %>
+    <li>
+      <span class="error_text">This Project has no Test Suites!</span>
+    </li>
+  <% else %>
+    <% @test_suites.each do |ts| %>
+      <li>
+         <input type="checkbox" name="test_suite_execution[test_suite_ids][]" value="<%= ts.id %>">
+         <%= ts.name %>(<%= ts.test_cases.length %>)<br/>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  name: "Selenium"
+  host_name: "dcd-selenium.gratisinc.com"
+  port: 4444
+  created_on: 2008-08-26 12:47:15
+second:
+  id: 2
+  name: "ayd"
+  host_name: "dcd-anthony"
+  port: 4444
+  created_on: 2008-08-26 12:47:15

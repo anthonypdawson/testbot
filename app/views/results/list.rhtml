@@ -1,0 +1,9 @@
+<h1>Listing results</h1>
+<%= render :partial=>"list" %>
+
+<%= link_to 'Previous page', { :page => @result_pages.current.previous } if @result_pages.current.previous %>
+<%= link_to 'Next page', { :page => @result_pages.current.next } if @result_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New result', :action => 'new' %>

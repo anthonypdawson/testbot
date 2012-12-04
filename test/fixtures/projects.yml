@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  name: "Project 1"
+  created_on: 2008-08-26 12:47:15
+  version: "1.0"
+second:
+  id: 2
+  name: "Project 2"
+  created_on: 2008-08-26 12:47:15
+  version: "2.0"

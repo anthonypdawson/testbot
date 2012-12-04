@@ -1,0 +1,43 @@
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label>
+    </td>
+    <td class="entry">
+      <%=h @snippet.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Description</label>
+    </td>
+    <td class="entry">
+      <%=h @snippet.description %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Project</label>
+    </td>
+    <td class="entry">
+      <%=h @snippet.project.name if !@snippet.project.nil? %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Script</label>
+    </td>
+    <td class="entry">
+      <% if @snippet.script.length > 0 %>
+        <div class="codeDiv">
+          <%= @snippet.script.gsub("\n","<br //>") %>
+       </div>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+
+<%= link_to 'Edit', :action => 'edit', :id => @snippet %> |
+<%= link_to 'Remove', {:action => 'destroy', :id => @snippet}, :confirm => "Are you sure?", :method => :post %> |
+<%= link_to 'List', :action => 'list' %>

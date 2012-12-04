@@ -1,0 +1,5 @@
+<h1 class="pagetitle">Snippets</h1>
+<div id="list">
+  <%= render :partial=>"list", :locals=>{:snippets => @snippets} %>
+</div>
+<%= link_to 'Create a new Snippet', :action => 'new' %>

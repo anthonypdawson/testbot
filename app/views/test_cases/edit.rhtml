@@ -1,0 +1,9 @@
+<h1>Editing test_case</h1>
+
+<% form_tag :action => 'update', :id => @test_case do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Save' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @test_case %> |
+<%= link_to 'Back', :action => 'list' %>

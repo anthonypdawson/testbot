@@ -1,0 +1,57 @@
+Testbot Server:
+  * Linux OS recommended
+  * ruby 1.8.5+
+  * gems:
+
+    SystemTimer (1.0)
+      Set a Timeout based on signals, which are more reliable than
+      Timeout. Timeout is based on green threads.
+
+    Selenium (1.1.14)
+      A project that wraps selenium API into object-oriented testing style
+      and packages it into a RubyGem.
+
+    rails (2.1.0)
+      Web-application framework with template engine, control-flow layer,
+      and ORM.
+
+    rake (0.8.1)
+      Ruby based make-like utility.
+
+    mysql (2.7)
+      MySQL/Ruby provides the same functions for Ruby programs that the
+      MySQL C API provides for C programs.
+
+    hoe (1.7.0)
+      Hoe is a simple rake/rubygems helper for project Rakefiles
+
+    actionmailer (2.1.0)
+      Service layer for easy email delivery and testing.
+
+    actionpack (2.1.0)
+      Web-flow and rendering framework putting the VC in MVC.
+
+    activerecord (2.1.0)
+      Implements the ActiveRecord pattern for ORM.
+
+    activeresource (2.1.0)
+      Think Active Record for web resources.
+
+    activesupport (2.1.0)
+      Support and utility classes used by the Rails framework.
+
+    mongrel (1.1.5)
+      A small fast HTTP library and server that runs Rails, Camping,
+    Nitro and Iowa apps.
+
+    mongrel_cluster (1.0.5)
+      Mongrel plugin that provides commands and Capistrano tasks for
+    managing multiple Mongrel processes.
+
+
+Selenium Server Requirements:
+
+* Windows 2k+
+* Selenium R/C (http://selenium-rc.openqa.org/)
+* JRE (java)
+* Browsers(whichever you want to test, FF 2 recommended)

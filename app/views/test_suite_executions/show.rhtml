@@ -1,0 +1,74 @@
+<table width="70%" class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Description</label>
+    </td>
+    <td class="entry">
+      <%= @test_suite_execution.description %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Project</label>
+    </td>
+    <td class="entry">
+      <%= @test_suite_execution.project.name%> <%= @test_suite_execution.revision.version %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Environment</label>
+    </td>
+    <td class="entry">
+      <%= @test_suite_execution.environment.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Started</label>
+    </td>
+    <td class="entry">
+      <%= @test_suite_execution.started_on %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Elapsed Time</label>
+    </td>
+    <td class="entry">
+      <%= @test_suite_execution.elapsed_time %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Status</label>
+    </td>
+    <td class="entry">
+      <%= @test_suite_execution.test_status %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Suites</label><br/>
+      <label class="sublabel">click to expand</label>
+    </td>
+    <td class="entry">
+<table class="list_table">
+  <tr class="header">
+    <td>
+      Name
+    </td>
+    <td>
+      Status
+    </td>
+  </tr>
+<% @test_suite_execution.test_suites.each do |ts| %>
+  <%= render :partial=>"show_test_suites", :layout=>false, :locals=>{:results=>@test_suite_execution.test_suite_results(ts), :test_suite => ts} %>
+<% end %>
+<%= render :partial=>"show_test_suites", :layout=>false, :locals=>{:results=>@test_suite_execution.test_suite_results()} if @test_suite_execution.test_cases.length > 0%>
+</table>
+</td>
+</tr>
+</table>
+<br />
+<%= link_to 'List', :action => 'list' %>

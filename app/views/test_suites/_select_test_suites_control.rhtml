@@ -1,0 +1,8 @@
+<ul>
+<% @test_suites.each do |ts| %>
+  <li>
+ <input type="checkbox" id="test_suite_execution[test_suite_ids][<%=ts.id%>]" name="test_suite_execution[test_suite_ids][]" value="<%= ts.id %>">
+    <span onmouseover="this.style.cursor = 'pointer';" onclick="toggleCheckBox('test_suite_execution[test_suite_ids][<%=ts.id%>]');"><%= ts.name %>(<%= ts.test_cases.length %>)
+  </li>
+<% end %>
+</ul>

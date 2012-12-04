@@ -1,0 +1,18 @@
+<table>
+    <tr valign="top">
+      <td style="cursor: default;">
+        <p class="Added Test Cases">Current Test Cases<br/></p>
+        <div id="test_case_list" style="border: 1px solid">
+          <%= render :partial=>'test_cases', :layout=>false%>
+        </div>
+      </td>
+      <td style="cursor: default;">
+        <p class="label">Available Test Cases<br/></p>
+        <div id="select_case" style="border: 1px solid">
+          <%= render :partial=>'test_cases/select', :layout=>false %>
+       </div>
+     </td>
+    </tr>
+  </table>
+<%= sortable_element('current_test_case_list', :containment=> ['current_test_case_list', 'available_test_case_list'], :dropOnEmpty => false, :constraint => false, :url=>{:action=>:add_test_cases, :test_suite_id => @test_suite.id} ) %>
+<%= sortable_element('available_test_case_list', :containment => ['available_test_case_list', 'current_test_case_list'], :dropOnEmpty => false, :constraint => false) %>

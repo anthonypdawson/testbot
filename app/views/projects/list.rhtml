@@ -1,0 +1,6 @@
+<h1 class="pagetitle">Projects</h1>
+<div id="list">
+  <%= render :partial=>"list", :locals=>{:projects => @projects} %>
+</div>
+<%= link_to 'Create a new Project', :action => 'new' %>
+

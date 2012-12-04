@@ -1,0 +1,7 @@
+<h1 class="pagetitle">Servers</h1>
+<%= pagination_links_remote @selenium_server_pages %>
+<div id="list">
+  <%= render :partial=>"list", :locals=>{:selenium_servers => @selenium_servers} %>
+</div>
+
+<%= link_to 'Create a new Server', :action => 'new' %>

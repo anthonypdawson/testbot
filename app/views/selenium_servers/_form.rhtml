@@ -1,0 +1,46 @@
+<%= error_messages_for 'selenium_server' %>
+
+<!--[form:selenium_server]-->
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'selenium_server', 'name'  %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Hostname</label><br/>
+      <label class="sublabel">full hostname of server</label><br/>
+      <label class="sublabel">ex. test.gratisinc.com</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'selenium_server', 'host_name'  %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Port</label><br/>
+      <label class="sublabel">selenium server port</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'selenium_server', 'port'  %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Browsers</label><br/>
+      <label class="sublabel">select browsers on the server</label><br/>
+      <label onmouseover="this.style.cursor = 'pointer';" style="text-decoration: underline;"onclick="window.open('<%= url_for :controller=>:browsers, :action=>:list%>')" class="sublabel">create/edit/delete</label>
+    </td>
+    <td class="entry">
+      <%= render :partial=>'select_browser_control', :layout => false %>
+    </td>
+  </tr>
+</table>
+<!--[eoform:selenium_server]-->
+

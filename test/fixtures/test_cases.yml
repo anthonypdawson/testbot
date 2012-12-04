@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  name: "test case 1"
+  test_link_id: 20
+  setup_script:
+  teardown_script:
+  execute_script: "@selenium.close\n"
+  created_on: 2008-08-26 12:47:15
+  project_id: 2
+second:
+  id: 2
+  name: "test case 2"
+  test_link_id: 22
+  setup_script: "puts 'tc2'\n"
+  teardown_script: "puts 'going byebye'\n"
+  execute_script: "# do nothing\n"
+  created_on: 2008-08-20 12:47:15
+  project_id: 1

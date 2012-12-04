@@ -1,0 +1,19 @@
+<%= generate_list_header(pagination_links_remote(@snippet_pages), filter_by_project(@filter, Project.find(:all, :include=>:snippets).select{|p| p.snippets.length > 0})) %>
+
+<table class="list_table">
+  <tr class="header">
+    <td>Name</td>
+    <td>Description</td>
+    <td>Project</td>
+  </tr>
+
+<% for snippet in @snippets %>
+  <tr onMouseOver="this.style.cursor = 'pointer'" onclick="document.location='<%= url_for :action=> :show, :id=>snippet %>'" class="body-<%=cycle("even","odd")%>">
+    <td><%= snippet.name %></td>
+    <td><%= snippet.description %></td>
+    <td><%= snippet.project.name if !snippet.project.nil? %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+

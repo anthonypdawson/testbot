@@ -1,0 +1,9 @@
+<h1>Editing snippet</h1>
+
+<% form_tag :action => 'update', :id => @snippet do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Save' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @snippet %> |
+<%= link_to 'Back', :action => 'list' %>

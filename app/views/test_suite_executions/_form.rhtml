@@ -1,0 +1,92 @@
+<%= error_messages_for 'test_suite_execution' %>
+
+<!--[form:test_suite_execution]-->
+
+
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Project</label><br/>
+      <label class="sublabel">what are you testing?</label>
+    </td>
+    <td class="entry">
+      <%= collection_select :test_suite_execution, :project_id, @projects, :id, :to_s, {:prompt => "Select an option.."}, :id=> 'project_id', :onchange=>"javascript:showDiv('ts_label');showDiv('suite_select');showDiv('revision_label');showDiv('revision_select');showDiv('environment_select');showDiv('environment_label');"%>
+      <%= observe_field 'project_id', :update=> 'revision_select', :url => {:controller=>'test_suite_executions', :action=>'select_revision'}, :on => 'changed', :with => 'project_id', :before=>"$('revision_select').update('<img height=\"75\" width=\"75\" src=\"/images/loading.gif\">')"%>
+<%= observe_field 'project_id', :update=> 'environment_select', :url => {:controller=>'test_suite_executions', :action=>'select_environment'}, :on => 'changed', :with => 'project_id', :before=>"$('environment_select').update('<img height=\"75\" width=\"75\" src=\"/images/loading.gif\">')"%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <div id="revision_label" style="display:none;">
+        <label class="label">Build</label><br/>
+        <label class="sublabel">which version is this?</label>
+      </div>
+    </td>
+    <td class="entry">
+      <div id="revision_select" style="display:none;">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <div id="environment_label" style="display:none;">
+        <label class="label">Environment</label><br/>
+        <label class="sublabel">environment we're testing</label><br/>
+      </div>
+    </td>
+    <td class="entry">
+      <div id="environment_select" style="display:none;">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <div id="ts_label" style="display:none;">
+        <label class="label">Test Suites</label><br/>
+        <label class="sublabel">please select one or more</label>
+      </div
+    </td>
+    <td class="entry">
+      <div id="suite_select" style="display:none;">
+        <%= render :partial=>'test_suites/select', :locals=>{:project_id => @projects.first.id}  %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Server</label><br/>
+      <label class="sublabel">server to run tests</label>
+    </td>
+    <td class="entry">
+      <%= collection_select :test_suite_execution, :selenium_server_id, SeleniumServer.find(:all, :conditions=>"is_active = true"), :id, :name, {:prompt=>"Select an option.."}, :id=> 'selenium_server_id', :onchange=>"javascript:showDiv('browser_select_label');showDiv('browser_select');"%>
+      <%= observe_field 'selenium_server_id', :update=> 'browser_select', :url => {:controller=>'test_suite_executions', :action=>'select_browser_control'}, :on => 'changed', :with => 'selenium_server_id', :before=>"$('browser_select').update('<img height=\"75\" width=\"75\" src=\"/images/loading.gif\">')"%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <div id="browser_select_label" style="display: none;">
+        <label class="label">Browsers</label><br/>
+        <label class="sublabel">test which browsers?</label>
+      </div>
+    </td>
+    <td class="entry">
+      <div id="browser_select"  style="display:none;">
+        <%= render :action=>'select_browser_control', :locals=>{:selenium_server_id => SeleniumServer.find(:first).id}%>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Description</label><br/>
+      <label class="sublabel">why are you doing this?</label><br/>
+    </td>
+    <td class="entry">
+      <%= text_field 'test_suite_execution', 'description'  %>
+    </td>
+  </tr>
+</table>
+<%= observe_field 'project_id', :update=> "suite_select", :url => {:controller=>"test_suites", :action=>"select"}, :on=>"changed", :with=>"project_id", :before=>"$('suite_select').update('<img height=\"75\" width=\"75\" src=\"/images/loading.gif\">')" %>
+
+
+<!--[eoform:test_suite_execution]-->
+

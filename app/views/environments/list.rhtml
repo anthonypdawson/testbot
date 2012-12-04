@@ -1,0 +1,27 @@
+<h1>Listing environments</h1>
+
+<table>
+  <tr>
+  <% for column in Environment.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for environment in @environments %>
+  <tr>
+  <% for column in Environment.content_columns %>
+    <td><%=h environment.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => environment %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => environment %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => environment }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @environment_pages.current.previous } if @environment_pages.current.previous %>
+<%= link_to 'Next page', { :page => @environment_pages.current.next } if @environment_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New environment', :action => 'new' %>

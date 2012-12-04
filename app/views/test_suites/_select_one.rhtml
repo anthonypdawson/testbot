@@ -1,0 +1,4 @@
+<div style="height: 50px; width: 300px; overflow: auto">
+<% project_id = 0 if project_id == "" %>
+<%= collection_select :test_suite, :id, TestSuite.find(:all, :conditions=>"project_id = #{project_id}"), :id, :name, {:prompt => "None"} %>
+</div>

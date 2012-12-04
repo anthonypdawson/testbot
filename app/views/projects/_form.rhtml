@@ -1,0 +1,48 @@
+<%= error_messages_for 'project' %>
+
+<!--[form:project]-->
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'project', 'name'  %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Builds</label><br/>
+      <label class="sublabel">current project versions</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <% if @project.id.nil? %>
+        <input id="new_revision" name="new_revision" size="10" type="text" value="" />
+      <% else %>
+        <div id="revision_list">
+          <%= render :partial=>"add_version", :layout=>false %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Environments</label><br/>
+      <label class="sublabel">current project environments</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <% if @project.id.nil? %>
+        <%= render :partial=>"environments/new", :layout=>false %>
+      <% else %>
+        <div id="environment_list">
+          <%= render :partial=>"add_environment", :layout=>false %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<!--[eoform:project]-->
+

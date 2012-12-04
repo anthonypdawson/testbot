@@ -1,0 +1,7 @@
+<% @test_cases.each do |tc| %>
+  <input type="checkbox" name="test_suite[test_case_ids][]" value="<%= tc.id %>"
+  <% if @test_suite.test_cases.include?(tc) %> 
+    checked="checked" 
+  <% end %> />
+  <%= tc.name %>
+<% end %>

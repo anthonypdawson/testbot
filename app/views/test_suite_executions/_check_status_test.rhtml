@@ -1,0 +1,7 @@
+<% if @test_suite_execution.pretty_status == "Complete" %>
+  <script language="javascript"%>
+    window.location = '<%=url_for :controller=>"results", :action=>"show", :id=>@test_suite_execution.results.first %>'
+  </script>
+<% else %>
+  <%= @test_suite_execution.pretty_status %>
+<% end %>

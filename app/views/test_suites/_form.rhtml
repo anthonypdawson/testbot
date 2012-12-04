@@ -1,0 +1,27 @@
+<%= error_messages_for 'test_suite' %>
+
+<!--[form:test_suite]-->
+<input type="hidden" id="test_suite_id" value="<%=@test_suite.id %>" />
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label><br/>
+      <label class="sublabel">Required *</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'test_suite', 'name'  %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Project</label><br/>
+      <label class="sublabel">Required *</label><br/>
+    </td>
+    <td class="entry">
+      <%= collection_select :test_suite, :project_id, Project.find(:all), :id, :name, {:prompt => "Select an option.."}%><br/>
+    </td>
+  </tr>
+</table>
+
+<!--[eoform:test_suite]-->
+

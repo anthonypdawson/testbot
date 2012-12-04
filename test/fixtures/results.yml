@@ -1,0 +1,18 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  created_on: 2008-08-26 12:47:15
+  test_suite_id: 2
+  test_case_id: 1
+  browser_id: 2
+  test_suite_execution_id: 1
+  project_id: 2
+second:
+  id: 2
+  created_on: 2008-08-26 12:47:15
+  test_suite_id: 2
+  test_case_id: 1
+  browser_id: 1
+  test_suite_execution_id: 2
+  project_id: 1
+

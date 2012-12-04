@@ -1,0 +1,22 @@
+<div id="<%=test_suite_name%>" style="display: none;">
+<table class="list_table">
+  <tr class="header">
+    <td>Test Case</td>
+    <td>Browser</td>
+    <td>Successes</td>
+    <td>Failures</td>
+    <td>Status</td>
+  </tr>
+
+<% results.each do |result| %>
+  <tr class="body-<%=cycle("even","odd")%>" onmouseover="this.style.cursor='pointer';" onclick="window.open('<%=url_for :controller=>:results, :action=>:show, :id=>result.id %>')"">
+    <td style="text-decoration: underline;"><%=result.test_case.name%></td>
+    <td><%=result.browser.name%></td>
+    <td><%=result.success_count %></td>
+    <td><%=result.failure_count %></td>
+    <td class="status-<%= result.status %>"><%= result.status %></td>
+  </tr>
+<% end %>
+
+</table>
+</div>

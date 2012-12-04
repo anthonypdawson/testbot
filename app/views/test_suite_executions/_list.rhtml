@@ -1,0 +1,26 @@
+<%= generate_list_header(pagination_links_remote(@test_suite_execution_pages), filter_by_project(@filter, Project.find(:all, :include=>:test_suite_executions).select{|p| p.test_suite_executions.select{|t| !t.is_test}.length > 0 })) %>
+<table class="list_table">
+  <tr class="header">
+    <td>Project</td>
+    <td>Environment</td>
+    <td>Description</td>
+    <td>Status</td>
+  </tr>
+
+<% for test_suite_execution in test_suite_executions %>
+  <tr onMouseOver="this.style.cursor = 'pointer'" onclick="document.location='<%= url_for :action=> :show, :id=>test_suite_execution %>'" class="body-<%=cycle("even","odd")%>">
+    <td><%= test_suite_execution.project.name %> <%= test_suite_execution.revision.version%></td>
+    <td><%= test_suite_execution.environment.to_s %></td>
+    <td><%= test_suite_execution.description %></td>
+    <td class="status-<%= test_suite_execution.test_status %>">
+      <div name="test_status_<%=test_suite_execution.id%>" id="test_status_<%=test_suite_execution.id%>">
+        <span class="status-<%= test_suite_execution.test_status %>"><%= test_suite_execution.test_status %></span>
+      </div>
+    </td>
+    <% if test_suite_execution.test_status == "Pending" || test_suite_execution.test_status == "Executing" %>
+      <%= periodically_call_remote(:update=>"test_status_#{test_suite_execution.id}", :url => {:action => "check_status", :id=>test_suite_execution.id}, :frequency => 5) %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+

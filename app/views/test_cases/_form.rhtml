@@ -1,0 +1,110 @@
+<%= error_messages_for 'test_case' %>
+
+<%= render :partial => "help", :layout => false %>
+<a href="#" onclick="toggleDiv('help_div')">Help</a>
+<!--[form:test_case]-->
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label><br/>
+      <label class="sublabel">required *</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'test_case', 'name'  %>
+    </td>
+    <td>
+      <%= render :partial=>"snippets/select", :layout=>false, :locals=>{:style=>"position: absolute;width: 150px;"} %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Project</label><br/>
+      <label class="sublabel">required *</label>
+    </td>
+    <td class="entry">
+      <%= collection_select :test_case, :project_id, Project.find(:all), :id, :name, {:prompt=>"Select one"} %><br/>
+      <%= observe_field 'test_case_project_id', :update=> "suite_select", :url => {:controller=>"test_suites", :action=>"select_one"}, :on=>"changed", :with=>"project_id", :before=>"$('suite_select').update('<img height=\"75\" width=\"75\" src=\"/images/loading.gif\">')" %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Suite</label><br/>
+      <label class="sublabel">Optional</label><br/>
+      <label class="sublabel">automatically adds testcase to suite</label>
+    </td>
+    <td class="entry">
+      <div id="suite_select">
+        <%= collection_select :test_suite, :id, @test_suites, :id, :name, {:prompt => "None"} %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Link ID</label><br/>
+      <label class="sublabel">id of test in testlink</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'test_case', 'test_link_id' %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Setup Script</label><br/>
+      <label class="sublabel">ruby script to run before test</label>
+    </td>
+    <td class="entry" colspan="2">
+      <%= text_area 'test_case', 'setup_script', :cols=>80, :rows=>10 %>
+      <%= javascript_tag "Droppables.add('test_case_setup_script',
+        {
+          accept:'snippet',
+          hoverclass:'hover',
+          onDrop:function(element)
+          {
+            addSnippet('test_case_setup_script', element)
+          }
+        }
+      )"%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Execution Script</label><br/>
+      <label class="sublabel">main test script</label>
+    </td>
+    <td class="entry" colspan="2">
+      <%= text_area 'test_case', 'execute_script', :cols=>80, :rows=>15  %>
+      <%= javascript_tag "Droppables.add('test_case_execute_script',
+        {
+          accept:'snippet',
+          hoverclass:'hover',
+          onDrop:function(element)
+          {
+            addSnippet('test_case_execute_script', element)
+          }
+        }
+      )"%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Teardown Script</label><br/>
+      <label class="sublabel">ruby script run after test</label>
+    </td>
+    <td class="entry" colspan="2">
+      <%= text_area 'test_case', 'teardown_script', :cols=>80, :rows=>10  %>
+      <%= javascript_tag "Droppables.add('test_case_teardown_script',
+        {
+          accept:'snippet',
+          hoverclass:'hover',
+          onDrop:function(element)
+          {
+            addSnippet('test_case_teardown_script', element)
+          }
+        }
+      )"%>
+    </td>
+  </tr>
+</table>
+
+<!--[eoform:test_case]-->
+

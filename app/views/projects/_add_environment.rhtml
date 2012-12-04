@@ -1,0 +1,16 @@
+<ul class="NoBullet">
+  <% @project.current_environments.each do |environment| %>
+    <li>
+      <%= environment.name %> <%= link_to_remote ('[remove]', {:update=>"environment_list", :url=>{:controller=>:environments, :action=>:remove, :params=>{:id=>environment.id}},:confirm => "Are you sure?", :method => :post }, {:class=>'delete_link' } ) %>
+    </li>
+  <% end %>
+</ul>
+
+<div id="add_environment_button" style="display: block">
+  <a href="#" onclick="toggleDiv('new_environment');toggleDiv('add_environment_button');">New Environment</a>
+</div>
+<div id="new_environment" style="display: none">
+  <hr />
+  <%= render :partial=>"environments/new", :layout => false %><br/><%= link_to_remote 'Create', :before=>"toggleDiv('new_environment');toggleDiv('add_environment_button')", :url => {:controller=>"environments", :action=>"add"}, :with=>"'project_id='+#{@project.id}+'&name='+$F('environment_name')+'&base_url='+$F('environment_base_url')", :update=>"environment_list" %>
+ | <a href="#" onclick="toggleDiv('new_environment');toggleDiv('add_environment_button');">Cancel</a>
+</div>

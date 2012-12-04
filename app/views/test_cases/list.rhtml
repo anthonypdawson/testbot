@@ -1,0 +1,5 @@
+<h1 class="pagetitle">Test Cases</h1>
+<div id="list">
+  <%= render :partial=>"list", :locals=>{:test_cases => @test_cases} %>
+</div>
+<%= link_to 'Create a Test Case', :action => 'new' %>

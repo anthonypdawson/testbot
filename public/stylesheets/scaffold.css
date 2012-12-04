@@ -1,0 +1,227 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: sans-serif, verdana, arial, helvetica;
+  font-size:   13px;
+  line-height: 18px;
+  background-color: #FEFEFE;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+
+a.delete_link {
+  color: red;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+table.table_body {
+  border: 1px solid #E0EEEE;
+}
+table#table_bodd {
+  border: 1px solid #E0EEEE;
+}
+
+
+table.list_table{
+  border: 1px solid #E0EEEE;
+  margin: 1px;
+  width: 100%;
+}
+
+table.list_table tr.header td{
+
+  background-color: #E0EEEE;
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+}
+table.list tr.header td{
+  border: 1px solid;
+  background-color: white;
+  font-size: 16px;
+  text-decoration: bold;
+}
+table.list_table tr.body td {
+  background-color: silver;
+}
+
+table.list_table tr.body-even td{
+}
+table.list_table tr.body-odd td{
+  background-color: #f0f0f0;
+}
+ul.NoBullet {
+  list-style-type: none;
+  margin-left: 10px;
+  padding-left: 10px;
+  margin-top: 16px;
+}
+
+ul.NoBullet li {
+  padding: 1%;
+}
+
+ul.NoBulletHorizontal {
+  list-type-type: none;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+ul.NoBulletHorizontal li {
+  display: inline;
+  border-width: 1px;
+}
+
+#error_text {
+  color :red;
+}
+
+label.label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+div.draggable {
+  cursor: -moz-grab;
+}
+
+#test_case_selection {
+  cursor: -moz-grab;
+}
+
+#current_test_cases {
+  cursor: -moz-grab;
+}
+label {
+  vertical-align: top;
+  text-align: right;
+  width: 25%;
+  padding-right: 10px;
+  background-color: #E0EEEE;
+}
+td.label {
+  vertical-align: top;
+  text-align: right;
+  width: 25%;
+  padding-right: 10px;
+  background-color: #E0EEEE;
+}
+
+td.entry {
+  text-align: left;
+  padding-left: 10px;
+  border: 1px solid #EEEEEE;
+}
+ul.entry{
+  background-color: #EEEEEE;
+}
+label.sublabel {
+  color: grey;
+  font-style: italic;
+  font-size: 12px;
+}
+hr {
+  width: 100%;
+  height: 1px;
+  color: #E0EEEE;
+  background-color: #E0EEEE;
+}
+
+input.save {
+  color: white;
+  background-color: #4CC552;
+}
+textarea.hover{
+  border: 1px solid yellow;
+}
+
+td.status-Passed  {
+  background-color: #AAEFAA !important;
+}
+td.status-Failed {
+  background-color: #EFAAAA !important;
+}
+td.status-Interrupted {
+  background-color: #FFFF66 !important;
+}
+span.status-Passed {
+  background-color: #AAEFAA !important;
+}
+span.status-Failed {
+  background-color: #EFAAAA !important;
+}
+span.status-Interrupted {
+  background-color: #FFFF66 !important;
+}
+div.codeDiv {
+  height: 175px;
+  overflow: auto;
+}
+#snippet_browser {
+  border: 1px solid #E0EEEE;
+}

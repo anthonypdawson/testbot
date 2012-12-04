@@ -1,0 +1,15 @@
+<% if @test_cases.empty? or @test_cases.nil? %>
+  No test cases found!
+<% else %>
+<ul class="NoBullet"  id="available_test_case_list">
+  <li />
+<% @test_cases.each do |tc| %>
+  <% if !@test_suite.nil? and @test_suite.test_cases.include?(tc) %> 
+  <% else %>
+    <li id="test_case_<%= tc.id %>" style="cursor: pointer;">
+        <%= tc.name %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+<% end %>

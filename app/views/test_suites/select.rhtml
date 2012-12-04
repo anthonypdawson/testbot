@@ -1,0 +1,16 @@
+<div style="width: 300px; overflow: auto">
+<ul class="NoBullet">
+  <% if @test_suites.nil? or @test_suites.length < 1 %>
+    <li>
+      <span class="error_text">This Project has no Test Suites!</span>
+    </li>
+  <% else %>
+    <% @test_suites.each do |ts| %>
+      <li>
+         <input type="checkbox" id="test_suite_execution[test_suite_ids][<%=ts.id%>]" name="test_suite_execution[test_suite_ids][]" value="<%= ts.id %>">
+         <span onmouseover="this.style.cursor = 'pointer';" onclick="toggleCheckBox('test_suite_execution[test_suite_ids][<%=ts.id%>]');"><%=ts.name%></span> <%= link_to "info", {:controller=> 'test_suites', :action=>'show', :id=>ts.id}, {:title=>ts.test_cases.map{|tc| tc.name + " \r\n"}, :target=>"_blank", :style=>"text-decoration: none;font-size: 8px" } %><br/>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+</div>

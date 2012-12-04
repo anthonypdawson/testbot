@@ -1,0 +1,19 @@
+
+
+<%= generate_list_header(pagination_links_remote(@selenium_server_pages), filter_by_project(@filter, [])) %>
+
+<table class="list_table">
+  <tr class="header">
+    <td>Name</td>
+    <td>Host</td>
+    <td>Port</td>
+  </tr>
+
+<% for selenium_server in @selenium_servers %>
+  <tr onMouseOver="this.style.cursor = 'pointer'" onclick="document.location='<%= url_for :action=> :show, :id=>selenium_server %>'" class="body-<%=cycle("even","odd")%>">
+    <td><%=h selenium_server.name %></td>
+    <td><%=h selenium_server.host_name %></td>
+    <td><%=h selenium_server.port %></td>
+  </tr>
+<% end %>
+</table>

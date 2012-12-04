@@ -1,0 +1,8 @@
+<ul style="list-style-type: none">
+<% @browsers.each do |b| %>
+  <li>
+   <input type="checkbox" id="test_suite_execution[browser_ids][<%=b.id%>]" name="test_suite_execution[browser_ids][]" value="<%= b.id %>">
+    <span onmouseover="this.style.cursor = 'pointer';" onclick="toggleCheckBox('test_suite_execution[browser_ids][<%=b.id%>]');"><%= b.name %></span>
+  </li>
+<% end %>
+</ul>

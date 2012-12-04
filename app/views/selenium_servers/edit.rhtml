@@ -1,0 +1,9 @@
+<h1>Editing selenium_server</h1>
+
+<% form_tag :action => 'update', :id => @selenium_server do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Save' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @selenium_server %> |
+<%= link_to 'Back', :action => 'list' %>

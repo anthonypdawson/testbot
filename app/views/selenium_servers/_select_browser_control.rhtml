@@ -1,0 +1,15 @@
+<ul class="NoBullet">
+<% i = 0 %>
+<% Browser.find(:all).each do |b| %>
+  <li>
+  <input class="entry" type="checkbox" id="selenium_server[browser_ids][<%=b.id%>]" name="selenium_server[browser_ids][]" value="<%= b.id %>"
+  <% if !@selenium_server.nil? and @selenium_server.browsers.include?(b) %>
+    checked="checked"
+  <% end %>>
+  <span onmouseover="this.style.cursor = 'pointer';" onclick="toggleCheckBox('selenium_server[browser_ids][<%=b.id%>]');"><%= b.name %></span>
+  </li>
+<% i+=1 %>
+<% end %>
+</ul>
+
+  

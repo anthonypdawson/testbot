@@ -1,0 +1,19 @@
+<div id="snippet_browser" style="<%= style%>;position:absolute;z-index:1;background-color:white;">
+  <div class="label" id="snippet_browser_handle" style="text-align:center;background-color: #E0EEEE !important;width:100%">
+    <label class="label">Snippet Browser</label><br/>
+  </div>
+  <% if !@snippets.nil? %>
+    <% @snippets.each_pair do |project_name, snippet_list| %>
+        <span style="font-size: 1.1em;" onmouseover="this.style.cursor='pointer';" onclick="toggleDiv('<%=project_name%>')"><%=project_name%></span><br />
+        <div id="<%=project_name%>" style="background-color: white;display: none;border-top: 2px dotted #E0EEEE;border-bottom: 2px dotted #E0EEEE;">
+          <ul style="background-color: white;" class="NoBullet" id="select_snippet_<%=project_name%>">
+          <% snippet_list.each do |snippet| %>
+            <li onmouseover="this.style.cursor = 'pointer';" id="<%= snippet.id %>" class="snippet" value="<%= snippet.name %>"><%= snippet.name %></li>
+          <% end %>
+          </ul>
+        </div>
+        <%= sortable_element "select_snippet_#{project_name}", :constraint=>false, :droponempty => true %>
+    <% end %>
+  <% end %>
+</div>
+<%= draggable_element :snippet_browser, :revert => false, :handle=>"'snippet_browser_handle'" %>

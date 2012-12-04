@@ -1,0 +1,24 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  base_url: "http://stage.socialcash.com"
+  status: "n"
+  created_on: 2008-08-26 12:47:15
+  selenium_server_id: 1
+  project_id: 1
+  started_on: 
+  completed_on:
+  version: "1.0"
+  description: "Test execution 1"
+second:
+  id: 2
+  base_url: "http://socialcash.com"
+  status: "c"
+  created_on: 2008-08-26 12:47:15
+  selenium_server_id: 1
+  project_id: 2
+  started_on: 2008-08-26 12:48:15
+  completed_on: 2008-08-26 12:50:25
+  version: "2.0"
+  description: "Test execution 2"
+

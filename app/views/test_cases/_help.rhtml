@@ -1,0 +1,59 @@
+<% selenium_commands = [["get_location", "Gets your current URL"],
+                        ["get_title", "Gets the current page title"],
+                        ["get_text([xpath|identifier])", "Gets the text"],
+                        ["get_attribute([xpath|identifier]@attribute)", "Gets attribute of element"],
+                        ["click([xpath|identifier])", "Simulates click"],
+                        ["wait_for_page_to_load(timeout)", "Waits for the page to load, raises error after timeout"],
+                        ["go_back", "Simulates clicking 'Back'"]] %>
+<% assertion_commands = [["assert(arg, text=\"\")", "Adds a success if true, failure if false. Optional text describes test"],
+                        ["assert_equal(arg1, arg2, text=\"\")", "Tests equality of args, with optional text description"]] %>
+
+<div id="help_div" style="position: absolute;width:500px;left: 40px;top: 100px;display:none;z-index:1;border: 1px solid black;background-color: white;">
+  <div id="help_handle" style="background-color:#E0EEEE;border-bottom: 1px solid;" onmouseover="this.style.cursor = 'pointer'">
+    <table width="100%">
+      <tr>
+        <td class="label" style="align:left !IMPORTANT;">Help</td>
+        <td class="label" style="vertical-alignt:top;"><a href="#" onclick="toggleDiv('help_div')">x</a></td>
+      </tr>
+    </table>
+  </div>
+    <ul style="list-style-type: none;background-color: white;">
+      <li><h4>@selenium</h4></li>
+      <li><ul><li>The Selenium Driver object</li></ul></li>
+      <li onclick="toggleDiv('selenium_commands')" onmouseover="this.style.cursor = 'pointer';">
+        <h4 style="text-decoration: underline;">Commands</h4>
+      </li>
+      <li>
+        <ul id="selenium_commands" style="display:none;list-style-type: none;">
+          <% selenium_commands.each_with_index do |command, idx| %>
+          <li  onclick="toggleDiv('selenium_commands_<%=idx%>')" onmouseover="this.style.cursor = 'pointer';"><h4 style="text-decoration: underline;"><%= command.first %></h4></li>
+          <li id="selenium_commands_<%=idx%>" style="display:none;">
+            <ul style="list-style-type: none;"><li><%= command.last %></li></ul>
+          </li>
+          <% end %>
+        </ul>
+      </li>
+      <li><hr /></li>
+      <li><h4>Assertions</h4></li>
+      <li><ul><li>Check for success and failure conditions</li></ul></li>
+      <li onclick="toggleDiv('assertions')" onmouseover="this.style.cursor = 'pointer';"><h4 style="text-decoration:underline;">Commands</h4></li>
+      <li>
+        <ul id="assertions" style="list-style-type: none; display:none;">
+          <% assertion_commands.each_with_index do |command, idx| %>
+          <li onclick="toggleDiv('assertion_commands_<%=idx%>')" onmouseover="this.style.cursor = 'pointer';"><h4 style="text-decoration: underline;"><%= command.first %></h4></li>
+          <li id="assertion_commands_<%=idx%>" style="display:none;">
+            <ul style="list-style-type: none;"><li><%= command.last %></li></ul>
+          </li>
+          <% end %>
+        </ul>
+      </li>
+      <li><hr /></li>
+      <li><h4>Snippets</h4></li>
+      <li><ul>
+        <li>Snippets are preconfigured lines of code</li>
+        <li>Expand the project listings in the browser to view available snippets</li>
+        <li>Drag and drop into your script to use</li>
+     </ul></li>
+    </ul>
+</div>
+<%= draggable_element :help_div, :revert => false, :handle => "'help_handle'" %>

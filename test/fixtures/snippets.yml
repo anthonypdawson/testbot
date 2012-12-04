@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  name: "A snippet"
+  script: "puts 'hi'\n"
+  project_id: 1
+second:
+  id: 2
+  name: "Another Snippet"
+  script: "puts 'goodbye'\n"
+  project_id: 2

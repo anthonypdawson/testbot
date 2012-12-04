@@ -1,0 +1,3 @@
+<div id="test_status">
+</div>
+<%= periodically_call_remote(:update=>"test_status", :url => {:action => "check_status", :id=>@test_suite_execution.id}, :frequency => 5) %>

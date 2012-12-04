@@ -1,0 +1,19 @@
+<%= generate_list_header(pagination_links_remote(@test_case_pages), filter_by_project(@filter, Project.find(:all, :include=>:test_cases).select{|p| p.test_cases.length > 0})) %>
+<table class="list_table">
+  <tr class="header">
+  <td>Name</td>
+  <td>Project</td>
+  <td>TestLink ID</td>
+  </tr>
+
+<% for test_case in @test_cases %>
+  <tr onMouseOver="this.style.cursor = 'pointer'" onclick="document.location='<%= url_for :action=> :show, :id=>test_case %>'" class="body-<%=cycle("even","odd")%>">
+    <td><%=h test_case.send("name") %></td>
+    <td><%=h test_case.project.name  %></td>
+    <td><%=h test_case.send("test_link_id") %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

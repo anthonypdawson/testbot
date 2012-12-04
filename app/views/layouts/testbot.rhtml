@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>TestBot: Automated Testing Droid</title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'menu' %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'dragdrop.js' %>
+</head>
+<body>
+<table width="100%" height="100%">
+  <tr>
+    <td><%= link_to image_tag("testbot_logo.png", {:size=>"265x44", :style=>"border: 0px"}), :controller=>:test_suite_executions, :action=>:new %></td>
+    <td><%= link_to 'Execute a Test', :controller=>:test_suite_executions, :action=>:new %></td>
+    <td><%= link_to 'View Results', :controller=>:test_suite_executions, :action=>:list %></td>
+    <td><%= link_to 'Test Suites', :controller=>:test_suites, :action=>:list %></td>
+    <td><%= link_to 'Test Cases', :controller=>:test_cases, :action=>:list %></td>
+    <td><%= link_to 'Projects', :controller=>:projects, :action=>:list %></td>
+    <td>
+        <ul id="nav">
+          <li><a href="#">Configuration</a>
+            <ul>
+              <li>
+                <%= link_to 'Servers', :controller=>:selenium_servers, :action=>:list %>
+              </li>
+              <li>
+                <%= link_to 'Browsers', :controller=>:browsers, :action=>:list %>
+              </li>
+              <li>
+                <%= link_to 'Snippets', :controller=>:snippets, :action=>:list %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </td>
+  </tr>
+  <tr>
+    <td colspan="7">
+      <hr />
+    </td>
+  </tr>
+</table>
+<table width="100%" height="100%">
+  <tr>
+    <td colspan=7>
+    <table width="100%">
+      <tr>
+        <td style="vertical-align:top;">
+          <br/>
+          <p style="color: green"><%= flash[:notice] %></p>
+          <%= yield  %><br/><br/><br/><br/><br/>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr style="vertical-align: bottom;">
+    <td colspan="7" align="center" style="vertical-align: bottom;font-size: 10px;"><hr/></td>
+  </tr>
+  <tr style="vertical-align: bottom;">
+    <td colspan="7" align="center" style="vertical-align: bottom;font-size: 10px;">version <%= site_revision %></td>
+  </tr>
+  <tr style="vertical-align: bottom;">
+    <td colspan="7" align="center" style="vertical-align: bottom;font-size: 10px;">Copyright 2008 Gratis Internet, Inc.</td>
+  </tr>
+</table>
+</body>
+</html>

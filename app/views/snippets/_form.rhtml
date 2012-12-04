@@ -1,0 +1,56 @@
+<%= error_messages_for 'snippet' %>
+
+<!--[form:snippet]-->
+<%= render :partial=>"snippets/select", :layout=>false, :locals=>{:style=>"position: absolute; top: 125px; left:400px;width: 150px;"} %>
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'snippet', 'name'  %></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Description</label><br/>
+      <label class="sublabel">briefly, what this does</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'snippet', 'description'  %></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Project</label><br/>
+      <label class="sublabel">optional</label>
+    </td>
+    <td class="entry">
+      <%= collection_select :snippet, :project_id, Project.find(:all), :id, :name, {:prompt=>"Select one"} %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Script</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <%= text_area 'snippet', 'script'  %></p>
+      <%= javascript_tag "Droppables.add('snippet_script',
+        {
+          accept:'snippet',
+          hoverclass:'hover',
+          onDrop:function(element)
+          {
+            addSnippet('snippet_script', element)
+          }
+        }
+      )"%>
+    </td>
+  </tr>
+</table>
+
+
+<!--[eoform:snippet]-->
+

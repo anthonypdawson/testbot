@@ -1,0 +1,9 @@
+<ul class="NoBullet" id="current_test_case_list">
+  <li />
+  <% @test_suite.test_cases.each do |tc| %>
+      <li name="test_case_<%=tc.id%>" id="test_case_<%=tc.id%>" style="cursor: pointer;">
+        <%= tc.name %>
+      </li>
+  <% end %>
+</ul>
+

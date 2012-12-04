@@ -1,0 +1,13 @@
+<%= error_messages_for 'revision' %>
+
+<!--[form:revision]-->
+<p><label for="revision_version">Version</label><br/>
+<%= text_field 'revision', 'version'  %></p>
+
+<p><label for="revision_created_on">Created on</label><br/>
+<%= datetime_select 'revision', 'created_on'  %></p>
+
+<p><label for="revision_is_current">Is current</label><br/>
+<select id="revision_is_current" name="revision[is_current]"><option value="false">False</option><option value="true" selected>True</option></select></p>
+<!--[eoform:revision]-->
+

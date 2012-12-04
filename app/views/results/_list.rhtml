@@ -1,0 +1,19 @@
+<%= pagination_links_remote @result_pages %>
+<table>
+  <tr>
+    <td>Test Case</td>
+    <td>Test Project</td>
+    <td>Successes</td>
+    <td>Failures</td>
+  </tr>
+
+<% for result in @results %>
+  <tr>
+    <td><%=result.test_case.name%></td>
+    <td><%=result.project.name%></td>
+    <td><%=result.successes.split("\n").length if !result.successes.nil?%></td>
+    <td><%=result.failures.split("\n").length if !result.failures.nil?%></td>
+    <td><%= link_to 'Show', :action => 'show', :id => result %></td>
+  </tr>
+<% end %>
+</table>

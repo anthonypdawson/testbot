@@ -1,0 +1,8 @@
+<h1>Browsers</h1>
+
+<%= pagination_links_remote @browser_pages %>
+<div id="list">
+  <%= render :partial=>"list", :locals=>{:browsers => @browsers} %>
+</div>
+
+<%= link_to 'Create a new Browser', :action => 'new' %>

@@ -1,0 +1,9 @@
+<h1>Editing environment</h1>
+
+<% form_tag :action => 'update', :id => @environment do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @environment %> |
+<%= link_to 'Back', :action => 'list' %>

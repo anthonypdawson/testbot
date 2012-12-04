@@ -1,0 +1,34 @@
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label>
+    </td>
+    <td class="entry">
+      <%=h @test_suite.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Project</label>
+    </td>
+    <td class="entry">
+      <%=h @test_suite.project.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Cases</label>
+    </td>
+    <td class="entry">
+      <ul class="NoBullet">
+        <% @test_suite.test_cases.each do |tc| %>
+          <li><%=h tc.name %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', :action => 'edit', :id => @test_suite %> |
+<%= link_to 'Remove', { :action => 'destroy', :id => @test_suite }, :confirm => 'Are you sure?', :method => :post %> |
+<%= link_to 'List', :action => 'list' %>

@@ -1,0 +1,80 @@
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label>
+    </td>
+    <td class="entry">
+      <%=h @test_case.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Project</label>
+    </td>
+    <td class="entry">
+      <%=h @test_case.project.name%>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Suite(s)</label>
+    </td>
+    <td class="entry">
+      <ul class="NoBullet">
+        <% @test_case.test_suites.each do |ts| %>
+          <li> <%=h ts.name %> </li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Test Link ID</label>
+    </td>
+    <td class="entry">
+      <% if !@test_case.test_link_id.nil? %>
+        <a href="http://testlink/lib/testcases/archiveData.php?id=<%= @test_case.test_link_id %>&edit=testcase&allow_edit=0"><%=h @test_case.test_link_id %></a>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Setup Script</label>
+    </td>
+    <td class="entry">
+      <% if @test_case.setup_script.length > 0 %>
+        <div class="codeDiv">
+          <%= @test_case.setup_script.gsub("\n","<br //>") %>
+       </div>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Execute Script</label>
+    </td>
+    <td class="entry">
+      <% if @test_case.execute_script.length > 0 %>
+        <div class="codeDiv">
+          <%= @test_case.execute_script.gsub("\n","<br //>") %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Teardown Script</label>
+    </td>
+    <td class="entry">
+      <% if @test_case.teardown_script.length > 0 %>
+        <div class="codeDiv">
+          <%= @test_case.teardown_script.gsub("\n","<br //>") %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', :action => 'edit', :id => @test_case %> |
+<%= link_to 'List', :action => 'list' %> |
+<%= link_to 'Test', {:controller=>"test_suite_executions", :action => 'preview_test_case', :id=>@test_case}, :popup=>['new_window','height=500,width=650,scrollbars=true'] %>

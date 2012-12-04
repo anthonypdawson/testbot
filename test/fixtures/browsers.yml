@@ -1,0 +1,14 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  name: "Firefox"
+  path: 
+  created_on: 2008-08-26 12:47:15
+  selenium_name: "*firefox"
+second:
+  id: 2
+  name: "Safari"
+  path:
+  created_on: 2008-08-26 12:47:15
+  selenium_name: "*safari"
+

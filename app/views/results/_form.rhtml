@@ -1,0 +1,13 @@
+<%= error_messages_for 'result' %>
+
+<!--[form:result]-->
+<p><label for="result_created_on">Created on</label><br/>
+<%= datetime_select 'result', 'created_on'  %></p>
+
+<p><label for="result_failures">Failures</label><br/>
+<%= text_area 'result', 'failures'  %></p>
+
+<p><label for="result_successes">Successes</label><br/>
+<%= text_area 'result', 'successes'  %></p>
+<!--[eoform:result]-->
+

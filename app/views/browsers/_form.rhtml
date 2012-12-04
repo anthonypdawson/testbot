@@ -1,0 +1,34 @@
+<%= error_messages_for 'browser' %>
+
+<!--[form:browser]-->
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label><br/>
+      <label class="sublabel">required</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'browser', 'name'  %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Selenium ID</label><br/>
+      <label class="sublabel">see selenium doc for list</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'browser', 'selenium_name'  %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Path</label><br/>
+      <label class="sublabel">if not in system path</label>
+    </td>
+    <td class="entry">
+      <%= text_field 'browser', 'path'  %>
+    </td>
+  </tr>
+</table>
+<!--[eoform:browser]-->
+

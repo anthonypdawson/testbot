@@ -1,0 +1,98 @@
+==0.1.0.0==
+
+* First revision set
+* Lots of CSS work, bringing tables together
+* Added validation to tse, ts, tc, servers, projects
+* added description to test suite
+* BUG IE: div breaking on drag/drop for test case selection in Test Suite _edit
+
+==0.2.0.0==
+
+* Added snippets scaffolding
+* Added snippets table(name, script) to schema
+* Added snippets selection box in tc _form.
+* Added drag/drop ability to script boxes
+* BUG: Dropping snippet in script box for IE will add the code to the beginning of the text area, not at the cursor
+* Fixed bug where new TSE was doubling selected browsers (uniq!)
+* made test bot daemon single threaded
+* snippets verified running in testbot
+
+==0.3.0.0==
+
+* Updated models for tse, ts and results to better expose results
+* Finished view pages for tse to show results
+* Finished snippets create and view pages
+* Created build script. ruby build.rb major minor build patch. makes dirs in /var/www/testbot
+
+==0.3.1.0==
+
+* Continued updating pages to match site theme
+* Added drop down config menu to layout
+* Fixed IE bug on test suite edit page
+* Updated unit tests (still fail for controller tests)
+* Fixed a few small visual errors in CSS
+
+==0.3.2.0==
+
+* Finished theme updates on pages
+* Finished test link integration for v1
+
+==0.4.0.0==
+
+* Updated TSE list page to show status of tests pass/fail
+* Added Gratis copyright notice
+* Added new Logo
+
+==0.5.0.0==
+
+* Made logo a link to the index page
+* updated test_case assert methods to use an optional description
+* Fixed bug that prevented a result from being saved
+* Updated test_bot daemon to run for a specific environment
+* Updated results list (test_suite_executions list) to automatically refresh every 5s
+* Updated unit tests and fixtures
+* Fixed a bug in result where success and failure lists could become
+  corrupt
+* Updated ActiveRecordConnection and test_bot daemon to use
+  environment settings
+
+==0.6.0.0==
+
+* Added migrations for conversion to using 'environments' and
+  'revisions'
+* Updated project pages to support environments and revisions
+* Updated new test suite execution form to support environments and
+  revisions
+* Updated snippets, selenium_servers and test_suites with is_active
+  properties
+* Allowed 'deleting' of snippets, selenium_servers and test_suites
+
+==1.0.0.0==
+
+* Added Help page in test_case new
+* Fixed bug in test_bot daemon where nonthreaded mode wasn't hitting
+  the execute method
+* Fixed a bug where you couldn't assign a TC to a TS on a TC edit form
+* Fixed bug where validation on test_case create caused error in TS collection
+* Added more validation to models (snippets, tc, ts, projects)
+* Updated layout links to go to List pages
+* Added snippets to help text
+* Promoted to v1
+
+==1.1.0.0==
+
+* Added help text to tse view page
+
+==1.2.0.0==
+
+* Fixed bug where you could select a revision marked as not current in
+  a TSE
+* Updated all edit confirmation buttons to say "Save" instead of "Edit"
+
+==1.5.0.0==
+
+* Added test case preview.  Click "Test" on any testcases show page
+  and it will run a limited test_suite_execution
+* Updated all view pages to support pagination (and filtering when
+  available)
+* Added an optional description to snippets

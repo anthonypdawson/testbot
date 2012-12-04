@@ -1,0 +1,6 @@
+<h1 class="pagetitle">Test Suites</h1>
+<div id="list">
+  <%= render :partial=>"list", :locals=>{:test_suites => @test_suites} %>
+</div>
+<br/>
+<%= link_to 'Create a Test Suite', :action => 'new' %>

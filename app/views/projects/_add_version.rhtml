@@ -1,0 +1,15 @@
+<ul class="NoBullet">
+  <% @project.current_revisions.each do |revision| %>
+    <li>
+      <%= revision.version %> <%= link_to_remote ('[remove]', {:update=>"revision_list", :url=>{:controller=>:revisions, :action=>:remove, :params=>{:id=>revision.id}},:confirm => "Are you sure?", :method => :post }, {:class=>'delete_link' } ) %>
+    </li>
+  <% end %>
+</ul>
+
+<div id="add_button" style="display: block">
+  <a href="#" onclick="toggleDiv('new_revision');toggleDiv('add_button');">New Revision</a>
+</div>
+<div id="new_revision" style="display: none">
+  <hr />
+  <%= render :partial=>"revisions/new", :layout => false %> | <a href="#" onclick="toggleDiv('new_revision');toggleDiv('add_button');">Cancel</a>
+</div>

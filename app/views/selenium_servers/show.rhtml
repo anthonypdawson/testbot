@@ -1,0 +1,42 @@
+<table class="table_body">
+  <tr>
+    <td class="label">
+      <label class="label">Name</label>
+    </td>
+    <td class="entry">
+      <%=h @selenium_server.name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Host</label>
+    </td>
+    <td class="entry">
+      <%=h @selenium_server.host_name %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Port</label>
+    </td>
+    <td class="entry">
+      <%=h @selenium_server.port %>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">
+      <label class="label">Browsers</label>
+    </td>
+    <td class="entry">
+      <ul class="NoBullet">
+        <% @selenium_server.browsers.each do |browser| %>
+          <li><%=h browser.name %></li>
+        <% end %>
+      </ul>
+    </tr>
+  </tr>
+</table>
+
+<%= link_to 'Edit', :action => 'edit', :id => @selenium_server %> |
+<%= link_to 'Remove', { :action => 'destroy', :id => @selenium_server }, :confirm => 'Are you sure?', :method => :post %> |
+<%= link_to 'List', :action => 'list' %>

@@ -1,0 +1,15 @@
+What is Testbot?
+
+  Testbot is a web application that assists users in interacting with the excellent Selenium suite of tools.
+
+What does it provide?
+
+  Testbot allows you to setup your own applications (with environmental information, dev, stage production), testing servers (with multiple OS's, browsers), and test cases for easy execution and storage of results.
+
+Why Testbot?
+
+  The freedom you get with the ability to write ruby script directly into your test case is awesome.  Use the Selenium IDE Firefox plugin to 'record' your test, convert to ruby and finetune and paste directly into the webapp.  You can automate a decent sized system in a fraction of the time that a manual run would take!  After you write your tests, building suites and running scheduled tests is lightning fast.  And all your results are in one easy location.
+
+The standalone testbot daemon handles the execution of your test cases.  Configure to run multiple tests at once or limit to sequential runs, it's up to you.
+
+Everything is configurable, your apps, your tests, your browsers.
