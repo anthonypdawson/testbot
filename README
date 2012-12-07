@@ -4,7 +4,7 @@ What is Testbot?
 
 What does it provide?
 
-  Testbot allows you to setup your own applications (with environmental information, dev, stage production), testing servers (with multiple OS's, browsers), and test cases for easy execution and storage of results.
+  Testbot allows you to setup your own applications (with environmental information for dev, stage and production), testing servers (with multiple OS's, browsers), and test cases for easy execution and storage of results. Easily deploy lightweight client software and stand up multiple testing machines distributed throughout your network. Windows and Linux clients are supported.
 
 Why Testbot?
 
@@ -12,4 +12,4 @@ Why Testbot?
 
 The standalone testbot daemon handles the execution of your test cases.  Configure to run multiple tests at once or limit to sequential runs, it's up to you.
 
-Everything is configurable, your apps, your tests, your browsers.
+Everything is configurable, your apps, your tests, your browsers, your results.
